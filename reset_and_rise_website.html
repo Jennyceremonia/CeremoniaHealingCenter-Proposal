@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset and Rise</title>
+    <style>
+        :root {
+            --primary-dark: #0D6D63;
+            --primary-medium: #0F8075;
+            --primary-light: #09B3A2;
+            --sage-green: #8DCEA7;
+            --golden: #D7A033;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --text-dark: #2C3E50;
+            --text-medium: #5D6D7E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+            color: white;
+            padding: 60px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-medium);
+        }
+
+        .section-content p {
+            margin-bottom: 25px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-light), var(--sage-green));
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(9, 179, 162, 0.2);
+        }
+
+        .highlight-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(13, 109, 99, 0.1);
+            border-left: 4px solid var(--golden);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(13, 109, 99, 0.15);
+        }
+
+        .feature-card h4 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--golden), #E8B547);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(13, 109, 99, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-medium);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(13, 109, 99, 0.4);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-medium);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step h4 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .quote-section {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--golden);
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <!-- Logo SVG -->
+            <div class="logo">
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Stylized 'R' -->
+                    <path d="M50 50 Q50 30 70 30 L120 30 Q140 30 140 50 L140 80 Q140 100 120 100 L90 100 L140 150 L110 150 L70 100 L80 100 L80 50 Z M80 50 L80 80 L120 80 Q120 80 120 65 L120 50 Q120 50 105 50 L80 50 Z" fill="white"/>
+                    
+                    <!-- Leaf elements -->
+                    <path d="M150 60 Q160 50 170 60 Q160 70 150 60" fill="#8DCEA7"/>
+                    <path d="M170 70 Q180 60 190 70 Q180 80 170 70" fill="#8DCEA7"/>
+                    
+                    <!-- Sun element -->
+                    <circle cx="200" cy="55" r="15" fill="#D7A033"/>
+                    <!-- Sun rays -->
+                    <line x1="200" y1="35" x2="200" y2="25" stroke="#D7A033" stroke-width="3"/>
+                    <line x1="215" y1="40" x2="222" y2="33" stroke="#D7A033" stroke-width="3"/>
+                    <line x1="220" y1="55" x2="230" y2="55" stroke="#D7A033" stroke-width="3"/>
+                    <line x1="215" y1="70" x2="222" y2="77" stroke="#D7A033" stroke-width="3"/>
+                    
+                    <!-- Text -->
+                    <text x="50" y="200" font-family="Georgia, serif" font-size="48" fill="white" font-weight="300">Reset</text>
+                    <text x="50" y="250" font-family="Georgia, serif" font-size="32" fill="#8DCEA7">and Rise</text>
+                </svg>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Reset and Rise</h1>
+                <p class="hero-subtitle">We're building the platform that extraordinary spaceholders and facilitators deserve</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <p>You know those facilitators who create real transformation in groups? The ones who get results in hours that therapy takes months to achieve? Most people will never find them.</p>
+                <p>We're changing that. We're building a platform where the best facilitators can focus purely on facilitation while we handle everything else—so your work can finally reach the people who need it most.</p>
+                
+                <div class="highlight-box">
+                    <h3>Our mission:</h3>
+                    <p>End generational trauma and emotional stuckedness within three generations. And we think you're part of how we get there.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">You're changing lives and yet…</h2>
+            <div class="section-content">
+                <p>You're doing work that changes lives in ways that shouldn't be possible. People walk into your sessions stuck in patterns they've carried for decades, and they leave different. Actually different.</p>
+                <p>But you're working so hard to share yourself with the world.</p>
+                <p>Meanwhile, people are spending years and tens of thousands of dollars cycling through options that barely scratch the surface. They're in therapy for months making incremental progress when they could experience breakthrough with you in a single session.</p>
+                <p>The mismatch is painful: The people who most need your work can't find you. And you're spending your energy trying to market yourself instead of facilitating transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Is This You Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Is This You?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>You create powerful results:</h4>
+                    <p>In the space you hold, people process emotions and breakthrough in under 60 minutes what would normally take them weeks or months to work through.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>People actually change:</h4>
+                    <p>They don't just leave feeling inspired; they leave different. Your work consistently outpaces months of traditional approaches for most people who show up.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>You hold space like no others:</h4>
+                    <p>People feel safe with you to access their deepest emotions. They trust you with their vulnerability because you've earned it, with your devotion, your crafts, and your integrity.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>You work with groups:</h4>
+                    <p>You're not limited to one-on-one work. You can facilitate transformation for multiple people at once.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>You desire to expand your impact:</h4>
+                    <p>For all the results you've seen with your work, you know you can and want to make much bigger impacts in the world. It lights your heart up to imagine millions of people receiving what you have to offer. You believe it'll drastically change this world and future generations for the better.</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <p style="text-align: center; font-size: 1.2rem; color: var(--primary-dark); margin-top: 40px;">If this describes your work, but you're frustrated that only a handful of people can access it. Let's talk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Promise -->
+    <section class="quote-section">
+        <div class="container">
+            <p class="quote">We want to give you a platform to shine</p>
+            <div class="divider"></div>
+            <p class="quote" style="font-size: 1.2rem; margin-top: 20px;">We want to plug you into a platform of millions of users</p>
+        </div>
+    </section>
+
+    <!-- We Handle Everything -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">We Handle Everything Else</h2>
+            <div class="section-content">
+                <p>You know that feeling when you're spending more time on your website than on actual facilitation? When you're stressed about marketing instead of focused on the person sitting across from you who needs healing?</p>
+                <p>We're building this because we've watched too many extraordinary facilitators burn out trying to run businesses instead of doing what they're called to do.</p>
+                <p><strong>Here's what we mean by "everything else":</strong> The platform. The marketing. Finding people. Scheduling. Payments. Customer support. The tech that breaks at 2am. All of it.</p>
+                <p>You show up. You facilitate. You transform lives. That's it.</p>
+                <p>We handle everything else because your gift is too important to get diluted by business operations. The world needs what you do. And we want to make sure nothing gets in the way of that.</p>
+                <p>This is about you doing more of what you're meant to do, and less of everything that drains your energy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How This Works -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">How This Works</h2>
+            <div class="section-content">
+                <div class="feature-card">
+                    <h4>For you:</h4>
+                    <p>You show up for scheduled sessions (starting around once a week). We handle finding participants, managing the waiting lists, and all the logistics. You facilitate. We pay you.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>For participants:</h4>
+                    <p>They join our platform and get access to regular group sessions with facilitators like you. No more hunting for the right person or wondering if someone is legitimate because we've done that vetting.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Virtual and in-person:</h4>
+                    <p>Most sessions start virtual, but we're building for both. Whatever format works best for your particular approach.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>As we grow:</h4>
+                    <p>You can run as many sessions as you want. Right now we're intentionally small while we build this right, but the vision is facilitators having full calendars of people ready to do the work.</p>
+                </div>
+            </div>
+            <div class="section-content">
+                <p style="text-align: center; font-size: 1.2rem; color: var(--primary-dark); margin-top: 40px;">Think of it like this: You get a steady stream of people who actually want to transform, without any of the business headaches.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Next Steps</h2>
+            <div class="section-content">
+                <h3 style="color: var(--primary-dark); font-size: 1.8rem; margin-bottom: 30px;">For Facilitators</h3>
+                <p>If this resonates and you meet our standards, we want to experience your work firsthand. Here's our process:</p>
+                
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Apply:</h4>
+                        <p>Fill out our application so we can understand your approach and experience</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Review:</h4>
+                        <p>Our team vets your information and checks references</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Meet:</h4>
+                        <p>If we're aligned, we'll schedule a conversation to discuss the partnership</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>Experience:</h4>
+                        <p>We'll attend one of your sessions to experience your facilitation directly</p>
+                    </div>
+                </div>
+                
+                <p>Even if we know you personally, we ask everyone to go through this process—it helps us build the right foundation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="font-size: 2.2rem; margin-bottom: 30px;">Ready to Transform More Lives?</h2>
+            <a href="#apply" class="cta-button">Apply as a Facilitator</a>
+            
+            <div style="margin-top: 60px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Know Someone Extraordinary?</h3>
+                <p style="margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">If you've experienced profound transformation with a facilitator who fits our model—someone with deep integrity, exceptional safety-holding skills, and time-compressed results—we want to know about them.</p>
+                <p style="margin-bottom: 30px;">The best facilitators often aren't the most visible ones. Help us find them.</p>
+                <a href="#nominate" class="cta-button">Nominate a Facilitator</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
